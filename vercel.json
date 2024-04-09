@@ -8,6 +8,18 @@
     },
     "routes": [
         {
+            "src": "/build/(.*)",
+            "dest": "/public/build/"
+        },
+        {
+            "src": "/resources/(.*)",
+            "dest": "/public/resources/"
+        },
+        {
+            "src": "/favicon/(.*)",
+            "dest": "/public/favicon/"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
@@ -16,23 +28,18 @@
         "APP_ENV": "local",
         "APP_DEBUG": "true",
         "APP_URL": "https://laravel-vercel.vercel.app",
-
-
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
         "APP_ROUTES_CACHE": "/tmp/routes.php",
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
-
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
-
         "DB_CONNECTION": "mongodb",
         "DB_URI": "mongodb+srv://lekhuong:lekhuong1906@cluster0.cfsj05v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
         "DB_DATABASE": "payment",
-
         "BROADCAST_DRIVER": "log",
         "FILESYSTEM_DRIVER": "local",
         "QUEUE_CONNECTION": "sync",

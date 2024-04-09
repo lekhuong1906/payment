@@ -6,10 +6,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use MongoDB\Laravel\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
     use HasFactory, Notifiable;
+    protected $connection="mongodb";
+    protected $collection="users";
 
     /**
      * The attributes that are mass assignable.
@@ -17,9 +20,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        '_id',
         'name',
         'email',
-        'password',
     ];
 
     /**
@@ -29,7 +32,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -40,7 +42,6 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
     }

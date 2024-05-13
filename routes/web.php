@@ -16,6 +16,6 @@ Route::get('mongodb', function(){
 Route::post('post', function(Request $request){
     $data = $request->data;
     if ($data == 'post'){
-        return 'Toi da nhan form post';
+        return response()->json(['data' => 'CSRF token mismatch']);
     }
 });
